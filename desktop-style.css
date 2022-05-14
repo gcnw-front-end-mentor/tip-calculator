@@ -10,10 +10,17 @@
 html {
     font-size: 16px;
     font-weight: 700;
-    width: 100vw;
-    height: auto;
+
     font-family: 'Space Mono';
     background-color: #C5E4E7;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
 }
 
 #logoContainer {
@@ -21,9 +28,43 @@ html {
     height: 3.3125rem;
     background-image: url('./images/logo.svg');
     background-size: contain;
+    background-repeat: no-repeat;
+    top: 10rem;
+    margin: 10rem 0 5.5rem 0;
 }
 
-.billBox {
+.componentBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 57.5rem;
+    height: 30rem;
+    background-color: #FFFFFF;
+    border-radius: 1.5rem;
+    box-shadow: 0 2rem 2.75rem rgba(79,166,175,.2);
+}
+
+.inputContainer {
+    width: 23.75rem;
+    height: 24.25rem;
+    margin: 2rem;
+}
+
+.textField {
+    color: #9EBBBD;;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background-color: #F3F9FA;
+    border: none;
+    text-align: end;
+    font-family: 'Space Mono';
+    margin: 0;
+    padding: 0 0.5rem 0 0;
+    width: 21.75rem;
+
+}
+
+.inputBox {
     display: block;
     height: 4.875rem;
     width: 23.75rem;
@@ -31,13 +72,19 @@ html {
     margin-bottom: 2.5rem;
 }
 
-.billBox p { 
-    color: #5E7A7D;
+.inputBox p { 
+    color: #9EBBBD;
     font-size: 1rem;
     margin-bottom: 1rem;
 }
 
+.inputBox img {
+    margin: 0.5rem;
+}
+
 #billTotal {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 3rem;
     background-color: #F3F9FA;
@@ -81,30 +128,27 @@ html {
     line-height: 2.75rem;
 }
 
+.percentBox:hover {
+    background-color: #9FE8DF;
+    color: #00474B;
+    cursor: pointer;
+}
+
 .outputFrame {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 25.875rem;
     width: 25.875rem;
     background-color: #00474B;
-
-}
-
-.peopleBox {
-    display: block;
-    height: 4.875rem;
-    width: 23.75rem;
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.peopleBox p { 
-    color: #5E7A7D;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    border-radius: 1rem;
+    margin: 2rem;
 }
 
 #peopleTotal {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 3rem;
     background-color: #F3F9FA;
@@ -114,13 +158,20 @@ html {
     line-height: 2.75rem;
 }
 
+#messageContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .perPersonBox {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 20.875rem;
     height: 4.5rem;
     background-color: #00474B;
     color: white;
+    margin-top: 1.5625rem;
 }
 
 .staticBoxText {
@@ -143,7 +194,16 @@ html {
     width: 20.875rem;
     height: 3rem;
     background-color: #0D686D;
+    color: rgba(0, 71, 75, 0.502);
     border-radius: 0.3125rem;
     font-size: 1.25rem;
+    margin-top: 7.625rem;
     text-align: center;
+    line-height: 2.75rem;
+}
+
+#resetButton:hover {
+    background-color: #9FE8DF;
+    color: #00474B;
+    cursor: pointer;
 }
