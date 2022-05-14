@@ -29,8 +29,7 @@ body {
     background-image: url('./images/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    top: 10rem;
-    margin: 10rem 0 5.5rem 0;
+    margin: 3rem 0 2.5rem 0;
 }
 
 .componentBox {
