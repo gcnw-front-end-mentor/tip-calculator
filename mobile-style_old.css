@@ -37,7 +37,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 23.4375rem;
     height: auto;
     background-color: #FFFFFF;
     border-radius: 1.5rem;
@@ -49,7 +49,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
+    width: 23.75rem;
     height: 24.25rem;
     margin: 2rem;
 }
@@ -71,7 +71,7 @@ body {
 .inputBox {
     display: block;
     height: 4.875rem;
-    width: 95%;
+    width: 19.5rem;
     font-size: 1rem;
     padding-bottom: 2.5rem;
 }
@@ -103,7 +103,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 23.75rem;
     height: auto;
     margin: 1rem 0 0 0;
 }
@@ -148,7 +148,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 16.0625rem;
-    width: 95%;
+    width: 20.4375rem;
     background-color: #00474B;
     border-radius: 1rem;
     margin: 2rem;
