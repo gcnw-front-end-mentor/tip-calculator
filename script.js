@@ -7,10 +7,7 @@ const validationMessage = document.getElementById('validationMessage');
 const resetButton = document.getElementById('resetButton');
 const customButton = document.getElementById('customNumber');
 
-
-
-
-let currentSelection = null;
+let lastSelection = null;
 let buttonArray = ['percent05','percent10','percent15','percent25','percent50','customNumber','resetButton'];
 let buttonNodes = [];
 buttonArray.forEach(element => buttonNodes.push(document.getElementById(element)));
@@ -30,6 +27,13 @@ function appResponse(selection){
     let billAmount = parseInt(document.getElementById('billAmount').value);
     let numPeople = parseInt(document.getElementById('numPeople').value);
     console.log(billAmount + " | " + validInput.test(billAmount));
+    if(lastSelection == null){
+        lastSelection == selection.currentTarget;
+    }
+    else {
+        lastSelection.style.backgroundColor = '';
+        lastSelection.currentTarget.style.color = '';
+    }
     //VALIDATE INPUT
     if(selection.currentTarget == resetButton){
         Array.from(document.getElementsByClassName('textField')).forEach(element => element.value = '0');
@@ -39,21 +43,31 @@ function appResponse(selection){
         billBorder.style.border='';
         peopleBorder.style.border='';
     }
+    else if(selection.currentTarget == customButton && (!customButton.value)){
+
+    }
     else {
         peopleBorder.style.border='2px solid #26C2AE';
         billBorder.style.border='2px solid #26C2AE';
-        if(billAmount == 0){
+        if(!billAmount){
             billBorder.style.border='2px solid #E17457'; 
             validationMessage.style.display = 'block';
             validationMessage.innerHTML = 'Can\'t be zero';
         } 
-        if(numPeople == 0){
+        if(!numPeople){
             peopleBorder.style.border='2px solid #E17457'; 
             validationMessage.style.display = 'block';
             validationMessage.innerHTML = 'Can\'t be zero';
         }
-        if(!validInput.test(billAmount) || !validInput.test(numPeople)) {
+        if(!validInput.test(billAmount)){
             validationMessage.innerHTML = 'Numeric Input Only!';
+            billBorder.style.border='2px solid #E17457'; 
+            validationMessage.style.display = 'block';
+         }
+        
+        if(!validInput.test(numPeople)) {
+            validationMessage.innerHTML = 'Numeric Input Only!';
+            peopleBorder.style.border='2px solid #E17457'; 
             validationMessage.style.display = 'block';
         }
         if(validInput.test(billAmount) && validInput.test(numPeople)
