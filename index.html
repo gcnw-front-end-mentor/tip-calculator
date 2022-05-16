@@ -15,28 +15,32 @@
                     <p>Bill</p>
                     <div id="billTotal"><img src="./images/icon-dollar.svg" alt="Dollar Sign"/>
                         <label for="billAmount"></label>
-                        <input type="text" class="textField" id="billAmount" name="billAmount" value="0" pattern="[0-9\.]{1,9}" />                    
+                        <input type="text" class="textField" id="billAmount" name="billAmount" onfocus="this.value=''" value="0" pattern="[0-9\.]{1,9}" />                    
                     </div>
                 </div>
                 <div class="selectionBox">
                     <p>Select Tip %</p>
                     <div class="percentBoxContainer">
-                        <div id="percent5" class="percentBox">5%</div>
+                        <div id="percent05" class="percentBox">5%</div>
                         <div id="percent10" class="percentBox">10%</div>
                         <div id="percent15" class="percentBox">15%</div>
                         <div id="percent25" class="percentBox">25%</div>
                         <div id="percent50" class="percentBox">50%</div>
-                        <div id="percentCustom" class="percentBox">Custom</div>
+                        <div class="customTextbox">
+                            <label for="customNumber"></label>
+                            <input type="text" class="customNumber" id="customNumber" name="numPeople" onfocus="this.value=''" value="Custom" pattern="[0-9\.]{1,9}"> 
+                        </div>
+                        </div>
                     </div>
-                </div>
                 <div class="peopleBox inputBox">
                     <div id="messageContainer">
                         <p>Number of People</p><p id="validationMessage">Can't be zero</p>
                     </div>
                     <div id="peopleTotal"><img src="./images/icon-person.svg" alt="Person Icon" />
                         <label for="numPeople"></label>
-                        <input type="text" class="textField" id="numPeople" name="numPeople" value="0" pattern="[0-9\.]{1,9}"> </div>
+                        <input type="text" class="textField" id="numPeople" name="numPeople" onfocus="this.value=''" value="0" pattern="[0-9\.]{1,9}"> </div>
                 </div>
+            </div>
             </div>
             <div class="outputFrame">
                 <div class="outputContainer">
@@ -54,5 +58,6 @@
                 <div id="resetButton"><p>RESET</p></div>
             </div>
         </main>
+        <script src="./script.js"></script>
     </body>
 </html>

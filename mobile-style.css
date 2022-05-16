@@ -62,9 +62,9 @@ body {
     border: none;
     text-align: end;
     font-family: 'Space Mono';
-    margin: 0;
-    padding: 0 0.5rem 0 0;
-    width: 17rem;
+    margin: 0.25rem;
+    padding: 0 1rem 0.25rem 0;
+    width: 95%;
 
 }
 
@@ -96,6 +96,8 @@ body {
     text-align: end;
     font-size: 1.5rem;
     line-height: 2.75rem;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .selectionBox {
@@ -118,7 +120,7 @@ body {
     display: grid;
     justify-items: center;
     grid-template: repeat(3, 1fr) /  1fr 1fr;
-    width: inherit;
+    width: 100%;
     height: 13.5rem;
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
@@ -130,7 +132,7 @@ body {
     color: #FFFFFF;
     border-radius: 0.3125rem;
     height: 3rem;
-    width: 9.1875rem;
+    width: 100%;
     font-size: 1.5rem;
     text-align: center;
     line-height: 2.75rem;
@@ -141,6 +143,33 @@ body {
     color: #00474B;
     cursor: pointer;
 }
+
+
+#percentCustom {
+    display: hidden;    
+}
+
+.customTextbox {
+    width: 100%;
+}
+
+
+.customNumber {
+    display: block;
+    color: #fafafa;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #00474B;
+    border: none;
+    text-align: center;
+    font-family: 'Space Mono';
+    margin: 0;
+    padding-right: 0%;
+    border-radius: 0.3125rem;
+    width: 100%;
+    height: 3rem;
+}
+
 
 .outputFrame {
     display: flex;
@@ -164,6 +193,7 @@ body {
     text-align: end;
     font-size: 1.5rem;
     line-height: 2.75rem;
+    border-radius: 5px;
 }
 
 #messageContainer {
@@ -215,4 +245,9 @@ body {
     background-color: #9FE8DF;
     color: #00474B;
     cursor: pointer;
+}
+
+#validationMessage {
+    display: none;
+    color: #E17457;
 }
