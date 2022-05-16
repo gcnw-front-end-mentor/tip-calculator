@@ -2,7 +2,7 @@ let outputTip = document.getElementById('outputTip');
 let outputTotal = document.getElementById('outputTotal');
 let billBorder = document.getElementById('billTotal');
 let peopleBorder = document.getElementById('peopleTotal');
-const validInput = /[0-9]{0,9}\.{0,1}[0-9]{0|2}/;
+const validInput = /\d{1,9}\.{0,1}\d{0,2}/;
 const validationMessage = document.getElementById('validationMessage');
 const resetButton = document.getElementById('resetButton');
 const customButton = document.getElementById('customNumber');
@@ -27,36 +27,37 @@ function appResponse(selection){
     let tipPercent = (selection.currentTarget == customButton)
         ? customButton.value
         : parseInt(selection.target.id.substring(7));
-    console.log(customButton.value);
+    let billAmount = parseInt(document.getElementById('billAmount').value);
+    let numPeople = parseInt(document.getElementById('numPeople').value);
+    console.log(billAmount + " | " + validInput.test(billAmount));
     //VALIDATE INPUT
-    if(validInput.test(billAmount) || validInput.test(numPeople)) {
-        validationMessage.innerHTML = 'Invalid input: please enter a valid amount';
-        validationMessage.style.display = 'block';
+    if(selection.currentTarget == resetButton){
+        Array.from(document.getElementsByClassName('textField')).forEach(element => element.value = '0');
+        customButton.value='Custom';
+        outputTip.innerHTML = '$0.00';
+        outputTotal.innerHTML = '$0.00';
+        billBorder.style.border='';
+        peopleBorder.style.border='';
     }
     else {
-        let billAmount = parseInt(document.getElementById('billAmount').value);
-        let numPeople = parseInt(document.getElementById('numPeople').value);
-    // SET CURRENT SELECTION
-        if(currentSelection == null){
-            currentSelection = buttonNodes.indexOf(selection.currentTarget);
-        }
+        peopleBorder.style.border='2px solid #26C2AE';
+        billBorder.style.border='2px solid #26C2AE';
         if(billAmount == 0){
             billBorder.style.border='2px solid #E17457'; 
             validationMessage.style.display = 'block';
-        } else{billBorder.style.border='2px solid #26C2AE';}
+            validationMessage.innerHTML = 'Can\'t be zero';
+        } 
         if(numPeople == 0){
             peopleBorder.style.border='2px solid #E17457'; 
             validationMessage.style.display = 'block';
-        } else {peopleBorder.style.border='2px solid #26C2AE';}
-        if(selection.currentTarget == resetButton){
-            Array.from(document.getElementsByClassName('textField')).forEach(element => element.value = '0');
-            customButton.value='Custom';
-            outputTip.innerHTML = '$0.00';
-            outputTotal.innerHTML = '$0.00';
-            billBorder.style.border='';
-            peopleBorder.style.border='';
+            validationMessage.innerHTML = 'Can\'t be zero';
         }
-         else if (numPeople != 0 && billAmount != 0) {
+        if(!validInput.test(billAmount) || !validInput.test(numPeople)) {
+            validationMessage.innerHTML = 'Numeric Input Only!';
+            validationMessage.style.display = 'block';
+        }
+        if(validInput.test(billAmount) && validInput.test(numPeople)
+            && numPeople != 0 && billAmount != 0) {
             let tipTotal = tipPercent*billAmount/100;
             selection.currentTarget.style.backgroundColor = '#26C2AE';
             selection.currentTarget.style.color = '#00474B';
@@ -65,6 +66,7 @@ function appResponse(selection){
         }
     }
 }
+
 
 customButton.addEventListener("keypress",(event)=>{
     if(event.key === 'Enter'){
